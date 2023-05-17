@@ -1,8 +1,21 @@
 import ActiveLink from "../../components/ActiveLink/ActiveLink";
 import logo from "../../assets/toy-car.png";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
+import { toast } from "react-hot-toast";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => {})
+      .catch((err) => {
+        toast.error(err.message);
+      });
+  };
+
   return (
     <div className="shadow-xl bgColor">
       <div className="navbar text-white lg:max-w-[1440px] mx-auto">
@@ -70,12 +83,29 @@ const Header = () => {
           </ul>
         </div>
         <div className="">
-          <a className="btn active border-none shadow-2xl ml-2">Login</a>
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 ml-2 rounded-full">
-              <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-            </div>
-          </label>
+          {user && (
+            <button
+              onClick={handleLogout}
+              className="btn active border-none shadow-2xl ml-2"
+            >
+              Logout
+            </button>
+          )}
+          {!user && (
+            <Link
+              to={`/login`}
+              className="btn active border-none shadow-2xl ml-2"
+            >
+              Login
+            </Link>
+          )}
+          {user && (
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 ml-2 rounded-full">
+                <img src={user?.photoURL} />
+              </div>
+            </label>
+          )}
         </div>
       </div>
     </div>

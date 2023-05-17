@@ -5,11 +5,13 @@ import AllToys from "../page/AllToys/AllToys";
 import MyToys from "../page/MyToys/MyToys";
 import AddToy from "../page/AddToy/AddToy";
 import Blog from "../page/Blog/Blog";
+import ErrorPage from "../page/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
