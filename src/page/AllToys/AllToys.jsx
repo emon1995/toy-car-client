@@ -3,7 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 const AllToys = () => {
   const loadToys = useLoaderData();
 
-  console.log(loadToys);
+  // console.log(loadToys);
   return (
     <div className="my-20 mx-4">
       <div className="overflow-x-auto">
@@ -36,7 +36,7 @@ const AllToys = () => {
                 <td>{toy?.quantity}</td>
                 <td>
                   <Link
-                    to={`/allToys/${toy._id}`}
+                    to={`/toy/${toy._id}`}
                     className="btn active border-none"
                   >
                     View Details
