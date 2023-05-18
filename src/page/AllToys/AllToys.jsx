@@ -1,11 +1,53 @@
+import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
 const AllToys = () => {
   const loadToys = useLoaderData();
+  const [allToys, setAllToys] = useState(loadToys);
+  const [searchText, setSearchText] = useState("");
+
+  const handleSearch = () => {
+    fetch(`http://localhost:5000/searchToy/${searchText}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setAllToys(data);
+      });
+  };
 
   // console.log(loadToys);
   return (
     <div className="my-20 mx-4">
+      <div className="flex justify-center">
+        <div className="form-control mb-10">
+          <div className="input-group">
+            <input
+              type="text"
+              placeholder="Search…"
+              className="input input-bordered"
+              onChange={(e) => setSearchText(e.target.value)}
+            />
+            <button
+              onClick={handleSearch}
+              className="btn btn-square bgColor border-none"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full">
           {/* head */}
@@ -22,7 +64,7 @@ const AllToys = () => {
           </thead>
           <tbody>
             {/* row 1 */}
-            {loadToys.map((toy, index) => (
+            {allToys.map((toy, index) => (
               <tr key={toy._id}>
                 <th>{index + 1}</th>
                 <td>{toy?.seller_name}</td>
@@ -37,7 +79,7 @@ const AllToys = () => {
                 <td>
                   <Link
                     to={`/toy/${toy._id}`}
-                    className="btn active border-none"
+                    className="btn bgColor border-none"
                   >
                     View Details
                   </Link>
