@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <div>
       <h1>home</h1>
-      <Spinner></Spinner>
+      {/* <Spinner></Spinner> */}
     </div>
   );
 };
