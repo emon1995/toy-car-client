@@ -47,12 +47,16 @@ const Header = () => {
               <li>
                 <ActiveLink to={`/allToys`}>All Toys</ActiveLink>
               </li>
-              <li>
-                <ActiveLink to={`/myToys`}>My Toys</ActiveLink>
-              </li>
-              <li>
-                <ActiveLink to={`/addToy`}>Add Toy</ActiveLink>
-              </li>
+              {user && (
+                <>
+                  <li>
+                    <ActiveLink to={`/myToys`}>My Toys</ActiveLink>
+                  </li>
+                  <li>
+                    <ActiveLink to={`/addToy`}>Add A Toy</ActiveLink>
+                  </li>
+                </>
+              )}
               <li>
                 <ActiveLink to={`/blog`}>Blog</ActiveLink>
               </li>
@@ -74,14 +78,18 @@ const Header = () => {
             <li>
               <ActiveLink to={`/allToys`}>All Toys</ActiveLink>
             </li>
+            {user && (
+              <>
+                <li>
+                  <ActiveLink to={`/myToys`}>My Toys</ActiveLink>
+                </li>
+                <li>
+                  <ActiveLink to={`/addToy`}>Add A Toy</ActiveLink>
+                </li>
+              </>
+            )}
             <li>
-              <ActiveLink to={`/myToys`}>My Toys</ActiveLink>
-            </li>
-            <li>
-              <ActiveLink to={`/addToy`}>Add Toy</ActiveLink>
-            </li>
-            <li>
-              <ActiveLink to={`/blog`}>Blog</ActiveLink>
+              <ActiveLink to={`/blog`}>Blogs</ActiveLink>
             </li>
           </ul>
         </div>
