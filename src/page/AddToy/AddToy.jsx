@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { useLocation } from "react-router-dom";
 import CreatableSelect from "react-select/creatable";
 import { AuthContext } from "../../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
@@ -49,6 +50,19 @@ const AddToy = () => {
       description,
     };
     console.log(singleToy);
+
+    fetch("http://localhost:5000/addToy", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(singleToy),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        Swal.fire("Good job!", "Toy Added Successfully!", "success");
+      });
   };
 
   return (
