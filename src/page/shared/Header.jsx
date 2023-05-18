@@ -58,7 +58,10 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <Link to={`/`} className="btn btn-ghost normal-case text-xl gap-2">
+          <Link
+            to={`/`}
+            className="btn btn-ghost normal-case text-xs md:text-xl gap-2"
+          >
             <img className="w-7 h-7" src={logo} alt="logo" />
             CarsToyZone
           </Link>
@@ -82,7 +85,18 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        <div className="">
+        <div className="ml-4 ">
+          {user && (
+            <label
+              tabIndex={0}
+              className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom tooltip-secondary text-white"
+              data-tip={user?.displayName}
+            >
+              <div className="w-10 ml-2 rounded-full">
+                {user?.photoURL && <img src={user?.photoURL} />}
+              </div>
+            </label>
+          )}
           {user && (
             <button
               onClick={handleLogout}
@@ -98,17 +112,6 @@ const Header = () => {
             >
               Login
             </Link>
-          )}
-          {user && (
-            <label
-              tabIndex={0}
-              className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom tooltip-secondary text-white"
-              data-tip={user?.displayName}
-            >
-              <div className="w-10 ml-2 rounded-full">
-                {user?.photoURL && <img src={user?.photoURL} />}
-              </div>
-            </label>
           )}
         </div>
       </div>
