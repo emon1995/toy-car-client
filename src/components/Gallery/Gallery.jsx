@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const Gallery = () => {
   const [allImage, setAllImage] = useState([]);
   const [image, setImage] = useState({});
@@ -17,6 +20,7 @@ const Gallery = () => {
       .then((data) => {
         setAllImage(data);
         // console.log(data);
+        AOS.init();
       });
   }, []);
 
@@ -28,7 +32,7 @@ const Gallery = () => {
         </h1>
         <div className="-m-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  md:-m-2">
           {allImage.slice(0, 6).map((img) => (
-            <div key={img._id} className="w-full">
+            <div key={img._id} className="w-full" data-aos="flip-left">
               <div className=" w-full md:h-5/6 p-1 md:p-2">
                 <label
                   onClick={() => handleModal(img._id)}
