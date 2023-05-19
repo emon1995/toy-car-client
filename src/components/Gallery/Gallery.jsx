@@ -23,6 +23,9 @@ const Gallery = () => {
   return (
     <>
       <div className="container mx-auto px-5 py-2 lg:px-32 lg:pt-12">
+        <h1 className="text-center font-bold textColor mb-4 text-2xl">
+          Gallery
+        </h1>
         <div className="-m-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  md:-m-2">
           {allImage.slice(0, 6).map((img) => (
             <div key={img._id} className="w-full">

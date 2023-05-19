@@ -6,28 +6,35 @@ import SubToy from "../SubToy/SubToy";
 const ShopByCategory = () => {
   const [activeTab, setActiveTab] = useState("sports-car");
   const [toyData, setToyData] = useState([]);
-  const [subToyData, setSubToyData] = useState([]);
-  const [activeSubTab, setActiveSubTab] = useState("monster-trucks");
+  // const [subToyData, setSubToyData] = useState([]);
+  // const [activeSubTab, setActiveSubTab] = useState("monster-trucks");
 
   const handleTab = (tabName) => {
     setActiveTab(tabName);
+    // if (tabName === "sports-car") {
+    //   setActiveSubTab("monster-trucks");
+    // } else if (tabName === "police-car") {
+    //   setActiveSubTab("patrol-cars");
+    // } else if (tabName === "vintage") {
+    //   setActiveSubTab("monster-trucks");
+    // }
   };
 
-  const handleSubTab = (subTab) => {
-    setActiveSubTab(subTab);
-  };
+  // const handleSubTab = (subTab) => {
+  //   setActiveSubTab(subTab);
+  // };
 
-  useEffect(() => {
-    fetch(
-      `https://toy-marketplace-server-ochre.vercel.app/allToysSubCategory?name=${activeSubTab}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setSubToyData(data);
-      });
-  }, [activeSubTab]);
-  console.log(activeSubTab);
+  // useEffect(() => {
+  //   fetch(
+  //     `https://toy-marketplace-server-ochre.vercel.app/allToysSubCategory?name=${activeSubTab}`
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       // console.log(data);
+  //       setSubToyData(data);
+  //     });
+  // }, [activeSubTab]);
+  // console.log(activeSubTab);
 
   // https://toy-marketplace-server-ochre.vercel.app/allToysSubCategory?name=monster-trucks
 
@@ -39,14 +46,11 @@ const ShopByCategory = () => {
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
-        // setToyData(data);
-        const unique = data.map((v) => v?.sub_Category?.map((m) => m));
-        const uniqueData = unique.map((v) => v.map((a) => a));
-        // console.log(uniqueData);
-        let uniqueChars = [...new Set(...uniqueData)];
-
-        // console.log(uniqueChars);
-        setToyData(uniqueChars);
+        setToyData(data);
+        // const unique = data.map((v) => v?.sub_Category?.map((m) => m));
+        // const uniqueData = unique.map((v) => v.map((a) => a));
+        // let uniqueChars = [...new Set(...uniqueData)];
+        // setToyData(uniqueChars);
       });
   }, [activeTab]);
 
@@ -54,7 +58,10 @@ const ShopByCategory = () => {
 
   return (
     <div className="mt-10">
-      <div className="flex justify-center items-center">
+      <h1 className="text-center font-bold textColor mb-4 text-2xl">
+        Category
+      </h1>
+      <div className="flex justify-center items-center mx-4">
         <div>
           <div className="tabs">
             <a
@@ -82,7 +89,7 @@ const ShopByCategory = () => {
               Vintage
             </a>
           </div>
-          <div className="my-4">
+          {/* <div className="my-4">
             {toyData?.map((sub, i) => (
               <a
                 key={i}
@@ -94,14 +101,14 @@ const ShopByCategory = () => {
                 {sub?.label}
               </a>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="">
         <section className="text-gray-600 body-font">
           <div className="container px-5 py-24 mx-auto">
             <div className="flex flex-wrap -m-4">
-              {subToyData.map((toy) => (
+              {toyData.slice(0, 6).map((toy) => (
                 <SubToy key={toy._id} toy={toy}></SubToy>
               ))}
             </div>

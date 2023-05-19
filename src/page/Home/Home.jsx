@@ -1,3 +1,4 @@
+import Banner from "../../components/Banner/Banner";
 import Gallery from "../../components/Gallery/Gallery";
 import ShopByCategory from "../../components/ShopByCatgory/ShopByCategory";
 // import Spinner from "../../components/Spinner/Spinner";
@@ -5,8 +6,7 @@ import ShopByCategory from "../../components/ShopByCatgory/ShopByCategory";
 const Home = () => {
   return (
     <div className="my-20">
-      <h1>home</h1>
-      {/* <Spinner></Spinner> */}
+      <Banner></Banner>
       <Gallery></Gallery>
       <ShopByCategory></ShopByCategory>
     </div>
