@@ -1,5 +1,6 @@
 import Gallery from "../../components/Gallery/Gallery";
-import Spinner from "../../components/Spinner/Spinner";
+import ShopByCategory from "../../components/ShopByCatgory/ShopByCategory";
+// import Spinner from "../../components/Spinner/Spinner";
 
 const Home = () => {
   return (
@@ -7,6 +8,7 @@ const Home = () => {
       <h1>home</h1>
       {/* <Spinner></Spinner> */}
       <Gallery></Gallery>
+      <ShopByCategory></ShopByCategory>
     </div>
   );
 };

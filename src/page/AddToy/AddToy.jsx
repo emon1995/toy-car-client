@@ -51,7 +51,7 @@ const AddToy = () => {
     };
     console.log(singleToy);
 
-    fetch("http://localhost:5000/addToy", {
+    fetch("https://toy-marketplace-server-ochre.vercel.app/addToy", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -197,7 +197,7 @@ const AddToy = () => {
                 id="grid-state"
                 name="category"
               >
-                <option value="sports-cart">Sports Cars</option>
+                <option value="sports-car">Sports Cars</option>
                 <option value="police-car">Police Car</option>
                 <option value="vintage">Vintage</option>
               </select>

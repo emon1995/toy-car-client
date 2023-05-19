@@ -30,13 +30,16 @@ const UpdateToy = () => {
     };
     console.log(singleToy);
 
-    fetch(`http://localhost:5000/updateToy/${loadToy?._id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(singleToy),
-    })
+    fetch(
+      `https://toy-marketplace-server-ochre.vercel.app/updateToy/${loadToy?._id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(singleToy),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

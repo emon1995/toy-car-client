@@ -7,7 +7,9 @@ const AllToys = () => {
   const [searchText, setSearchText] = useState("");
 
   const handleSearch = () => {
-    fetch(`http://localhost:5000/searchToy/${searchText}`)
+    fetch(
+      `https://toy-marketplace-server-ochre.vercel.app/searchToy/${searchText}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setAllToys(data);
@@ -64,28 +66,29 @@ const AllToys = () => {
           </thead>
           <tbody>
             {/* row 1 */}
-            {allToys.map((toy, index) => (
-              <tr key={toy._id}>
-                <th>{index + 1}</th>
-                <td>{toy?.seller_name}</td>
-                <td>{toy?.toy_name}</td>
-                <td>
-                  {toy?.sub_Category.map((sub, i) => (
-                    <span key={i}>{sub.value},</span>
-                  ))}
-                </td>
-                <td>{toy?.price}</td>
-                <td>{toy?.quantity}</td>
-                <td>
-                  <Link
-                    to={`/toy/${toy._id}`}
-                    className="btn bgColor border-none"
-                  >
-                    View Details
-                  </Link>
-                </td>
-              </tr>
-            ))}
+            {allToys &&
+              allToys?.map((toy, index) => (
+                <tr key={toy._id}>
+                  <th>{index + 1}</th>
+                  <td>{toy?.seller_name}</td>
+                  <td>{toy?.toy_name}</td>
+                  <td>
+                    {toy?.sub_Category.map((sub, i) => (
+                      <span key={i}>{sub.value},</span>
+                    ))}
+                  </td>
+                  <td>{toy?.price}</td>
+                  <td>{toy?.quantity}</td>
+                  <td>
+                    <Link
+                      to={`/toy/${toy._id}`}
+                      className="btn bgColor border-none"
+                    >
+                      View Details
+                    </Link>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>

@@ -4,7 +4,7 @@ const Gallery = () => {
   const [image, setImage] = useState({});
 
   const handleModal = (id) => {
-    fetch(`http://localhost:5000/toy/${id}`)
+    fetch(`https://toy-marketplace-server-ochre.vercel.app/toy/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setImage(data);
@@ -12,7 +12,7 @@ const Gallery = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allToys`)
+    fetch(`https://toy-marketplace-server-ochre.vercel.app/allToys`)
       .then((res) => res.json())
       .then((data) => {
         setAllImage(data);
