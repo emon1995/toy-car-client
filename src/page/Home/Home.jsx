@@ -2,6 +2,7 @@ import Banner from "../../components/Banner/Banner";
 import Feedback from "../../components/Feedback/Feedback";
 import Gallery from "../../components/Gallery/Gallery";
 import ShopByCategory from "../../components/ShopByCatgory/ShopByCategory";
+import Testimonial from "../../components/Testimonial/Testimonial";
 // import Spinner from "../../components/Spinner/Spinner";
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
       <Gallery></Gallery>
       <ShopByCategory></ShopByCategory>
       <Feedback></Feedback>
+      <Testimonial></Testimonial>
     </div>
   );
 };
