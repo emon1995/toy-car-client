@@ -7,6 +7,11 @@ const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [allToys, setAllToys] = useState([]);
   const [control, setControl] = useState(false);
+  const [activeTab, setActiveTab] = useState("asc");
+
+  const handleTab = (tabName) => {
+    setActiveTab(tabName);
+  };
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -37,17 +42,37 @@ const MyToys = () => {
 
   useEffect(() => {
     fetch(
-      `https://toy-marketplace-server-ochre.vercel.app/myToys/${user?.email}`
+      `https://toy-marketplace-server-ochre.vercel.app/myToys/${user?.email}?sort=${activeTab}`
     )
       .then((res) => res.json())
       .then((data) => {
         setAllToys(data);
         // console.log(data);
       });
-  }, [user, control]);
+  }, [user, control, activeTab]);
 
   return (
     <div className="my-20 mx-4">
+      <div className="flex justify-center items-center mx-4 mb-8">
+        <div className="tabs">
+          <a
+            onClick={() => handleTab("asc")}
+            className={`tab border-b-4 border-sky-500 text-xl font-bold ${
+              activeTab === "asc" ? "tab-active textColor" : ""
+            }`}
+          >
+            Ascending
+          </a>
+          <a
+            onClick={() => handleTab("dsc")}
+            className={`tab border-b-4 border-sky-500 text-xl font-bold ${
+              activeTab === "dsc" ? "tab-active textColor" : ""
+            }`}
+          >
+            Descending
+          </a>
+        </div>
+      </div>
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full">
           {/* head */}

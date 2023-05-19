@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router-dom";
 
 const SingleToy = () => {
   const loadToy = useLoaderData();
-  console.log(loadToy);
+  // console.log(loadToy);
 
   return (
     <div>

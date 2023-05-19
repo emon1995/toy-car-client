@@ -11,7 +11,7 @@ const UpdateToy = () => {
     e.preventDefault();
     const form = e.target;
     const toy_name = form.toy_name.value;
-    const price = form.price.value;
+    const price = parseFloat(form.price.value);
     const quantity = form.quantity.value;
     const rating = form.rating.value;
     const photo = form.photo.value;
