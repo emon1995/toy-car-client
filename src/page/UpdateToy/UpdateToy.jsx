@@ -1,11 +1,16 @@
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useLocation } from "react-router-dom";
 
 const UpdateToy = () => {
   const { user } = useContext(AuthContext);
   const loadToy = useLoaderData();
+  const location = useLocation();
+
+  if (location.pathname === `/updateToy/${loadToy._id}`) {
+    document.title = "CarsToyZone | Update Toy";
+  }
 
   const handleAddToy = (e) => {
     e.preventDefault();

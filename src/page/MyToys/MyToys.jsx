@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const MyToys = () => {
@@ -8,6 +8,11 @@ const MyToys = () => {
   const [allToys, setAllToys] = useState([]);
   const [control, setControl] = useState(false);
   const [activeTab, setActiveTab] = useState("asc");
+  const location = useLocation();
+
+  if (location.pathname === `/myToys`) {
+    document.title = "CarsToyZone | My Toy";
+  }
 
   const handleTab = (tabName) => {
     setActiveTab(tabName);

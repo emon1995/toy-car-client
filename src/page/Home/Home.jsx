@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import Banner from "../../components/Banner/Banner";
 import Feedback from "../../components/Feedback/Feedback";
 import Gallery from "../../components/Gallery/Gallery";
@@ -6,6 +7,12 @@ import Testimonial from "../../components/Testimonial/Testimonial";
 // import Spinner from "../../components/Spinner/Spinner";
 
 const Home = () => {
+  const location = useLocation();
+
+  if (location.pathname === `/`) {
+    document.title = "CarsToyZone | Home";
+  }
+
   return (
     <div className="my-20">
       <Banner></Banner>

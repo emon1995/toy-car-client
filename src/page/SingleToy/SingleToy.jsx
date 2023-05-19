@@ -1,8 +1,14 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useLocation } from "react-router-dom";
 
 const SingleToy = () => {
   const loadToy = useLoaderData();
   // console.log(loadToy);
+  const location = useLocation();
+  // console.log(location);
+
+  if (location.pathname === `/toy/${loadToy._id}`) {
+    document.title = `CarsToyZone | ${location.state}`;
+  }
 
   return (
     <div>

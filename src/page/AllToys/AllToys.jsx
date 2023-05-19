@@ -1,10 +1,15 @@
 import { useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useLocation } from "react-router-dom";
 
 const AllToys = () => {
   const loadToys = useLoaderData();
   const [allToys, setAllToys] = useState(loadToys);
   const [searchText, setSearchText] = useState("");
+  const location = useLocation();
+
+  if (location.pathname === `/allToys`) {
+    document.title = "CarsToyZone | All Toy";
+  }
 
   const handleSearch = () => {
     fetch(
@@ -82,6 +87,7 @@ const AllToys = () => {
                   <td>
                     <Link
                       to={`/toy/${toy._id}`}
+                      state={toy?.toy_name}
                       className="btn bgColor border-none"
                     >
                       View Details

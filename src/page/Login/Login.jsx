@@ -8,11 +8,11 @@ import GoogleSign from "../../components/GoogleSign/GoogleSign";
 
 const Login = () => {
   const { logIn } = useContext(AuthContext);
-  const location = useLocation();
   const navigate = useNavigate();
+  const location = useLocation();
 
   if (location.pathname === `/login`) {
-    document.title = "Login";
+    document.title = "CarsToyZone | Login";
   }
 
   const from = location?.state?.from?.pathname || "/";

@@ -1,4 +1,12 @@
+import { useLocation } from "react-router-dom";
+
 const Blog = () => {
+  const location = useLocation();
+
+  if (location.pathname === `/blog`) {
+    document.title = "CarsToyZone | Blog";
+  }
+
   return (
     <div className="my-20 mx-4">
       <div className="mb-2">
