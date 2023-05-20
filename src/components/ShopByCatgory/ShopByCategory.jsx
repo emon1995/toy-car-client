@@ -26,7 +26,7 @@ const ShopByCategory = () => {
 
   // useEffect(() => {
   //   fetch(
-  //     `https://toy-marketplace-server-ochre.vercel.app/allToysSubCategory?name=${activeSubTab}`
+  //     `https://toy-marketplace-flame.vercel.app/allToysSubCategory?name=${activeSubTab}`
   //   )
   //     .then((res) => res.json())
   //     .then((data) => {
@@ -36,12 +36,12 @@ const ShopByCategory = () => {
   // }, [activeSubTab]);
   // console.log(activeSubTab);
 
-  // https://toy-marketplace-server-ochre.vercel.app/allToysSubCategory?name=monster-trucks
+  // https://toy-marketplace-flame.vercel.app/allToysSubCategory?name=monster-trucks
 
   // console.log(activeTab);
   useEffect(() => {
     fetch(
-      `https://toy-marketplace-server-ochre.vercel.app/allToysCategory/${activeTab}`
+      `https://toy-marketplace-flame.vercel.app/allToysCategory/${activeTab}`
     )
       .then((res) => res.json())
       .then((data) => {

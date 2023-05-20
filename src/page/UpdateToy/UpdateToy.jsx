@@ -36,7 +36,7 @@ const UpdateToy = () => {
     console.log(singleToy);
 
     fetch(
-      `https://toy-marketplace-server-ochre.vercel.app/updateToy/${loadToy?._id}`,
+      `https://toy-marketplace-flame.vercel.app/updateToy/${loadToy?._id}`,
       {
         method: "PATCH",
         headers: {

@@ -29,12 +29,9 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(
-          `https://toy-marketplace-server-ochre.vercel.app/deleteToy/${id}`,
-          {
-            method: "DELETE",
-          }
-        )
+        fetch(`https://toy-marketplace-flame.vercel.app/deleteToy/${id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -47,7 +44,7 @@ const MyToys = () => {
 
   useEffect(() => {
     fetch(
-      `https://toy-marketplace-server-ochre.vercel.app/myToys/${user?.email}?sort=${activeTab}`
+      `https://toy-marketplace-flame.vercel.app/myToys/${user?.email}?sort=${activeTab}`
     )
       .then((res) => res.json())
       .then((data) => {

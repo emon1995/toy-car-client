@@ -51,7 +51,7 @@ const AddToy = () => {
     };
     console.log(singleToy);
 
-    fetch("https://toy-marketplace-server-ochre.vercel.app/addToy", {
+    fetch("https://toy-marketplace-flame.vercel.app/addToy", {
       method: "POST",
       headers: {
         "content-type": "application/json",

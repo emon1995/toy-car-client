@@ -12,9 +12,7 @@ const AllToys = () => {
   }
 
   const handleSearch = () => {
-    fetch(
-      `https://toy-marketplace-server-ochre.vercel.app/searchToy/${searchText}`
-    )
+    fetch(`https://toy-marketplace-flame.vercel.app/searchToy/${searchText}`)
       .then((res) => res.json())
       .then((data) => {
         setAllToys(data);

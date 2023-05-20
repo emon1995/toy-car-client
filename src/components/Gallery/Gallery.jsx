@@ -7,7 +7,7 @@ const Gallery = () => {
   const [image, setImage] = useState({});
 
   const handleModal = (id) => {
-    fetch(`https://toy-marketplace-server-ochre.vercel.app/toy/${id}`)
+    fetch(`https://toy-marketplace-flame.vercel.app/toy/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setImage(data);
@@ -15,7 +15,7 @@ const Gallery = () => {
   };
 
   useEffect(() => {
-    fetch(`https://toy-marketplace-server-ochre.vercel.app/allToys`)
+    fetch(`https://toy-marketplace-flame.vercel.app/allToys`)
       .then((res) => res.json())
       .then((data) => {
         setAllImage(data);

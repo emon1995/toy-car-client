@@ -4,7 +4,7 @@ const Testimonial = () => {
     <div>
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
-          <h1 className="text-3xl font-medium title-font text-gray-900 mb-12 text-center">
+          <h1 className="text-3xl font-medium title-font textColor mb-12 text-center">
             Testimonials
           </h1>
           <div className="flex flex-wrap -m-4">
