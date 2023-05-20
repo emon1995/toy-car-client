@@ -7,7 +7,7 @@ const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [allToys, setAllToys] = useState([]);
   const [control, setControl] = useState(false);
-  const [activeTab, setActiveTab] = useState("asc");
+  const [activeTab, setActiveTab] = useState("");
   const location = useLocation();
 
   if (location.pathname === `/myToys`) {
