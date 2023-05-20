@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Link } from "react-router-dom";
-import img from "../../assets/banner.jpg";
+// import img from "../../assets/banner.jpg";
 
 const Banner = () => {
   return (
@@ -63,7 +63,7 @@ const Banner = () => {
             <img
               className="object-cover object-center rounded"
               alt="hero"
-              src={img}
+              src="https://cdn.pixabay.com/photo/2015/09/09/19/08/lego-932660_640.jpg"
             />
           </div>
         </div>
