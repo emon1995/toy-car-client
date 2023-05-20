@@ -1,28 +1,29 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { useLocation } from "react-router-dom";
-import CreatableSelect from "react-select/creatable";
+// import CreatableSelect from "react-select/creatable";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
+import { toast } from "react-hot-toast";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
-  const [selectedOption, setSelectedOption] = useState(null);
+  // const [selectedOption, setSelectedOption] = useState(null);
   const location = useLocation();
 
   if (location.pathname === `/addToy`) {
-    document.title = "CarsToyZone | Add Toy";
+    document.title = "RaceToyZone | Add Toy";
   }
 
-  const options = [
-    { value: "off-road", label: "Off-Road" },
-    { value: "monster-trucks", label: "Monster Trucks" },
-    { value: "stunt-car", label: "Stunt Cars" },
-    { value: "pickup-trucks", label: "Pickup Trucks" },
-    { value: "emergency-vehicles", label: "Emergency Vehicles" },
-    { value: "law-enforcement", label: "Law Enforcement" },
-    { value: "patrol-cars", label: "Patrol Cars" },
-    { value: "remote-control", label: "Remote Control" },
-  ];
+  // const options = [
+  //   { value: "off-road", label: "Off-Road" },
+  //   { value: "monster-trucks", label: "Monster Trucks" },
+  //   { value: "stunt-car", label: "Stunt Cars" },
+  //   { value: "pickup-trucks", label: "Pickup Trucks" },
+  //   { value: "emergency-vehicles", label: "Emergency Vehicles" },
+  //   { value: "law-enforcement", label: "Law Enforcement" },
+  //   { value: "patrol-cars", label: "Patrol Cars" },
+  //   { value: "remote-control", label: "Remote Control" },
+  // ];
 
   const handleAddToy = (e) => {
     e.preventDefault();
@@ -34,8 +35,8 @@ const AddToy = () => {
     const photo = form.photo.value;
     const seller_name = user.displayName;
     const seller_email = user.email;
-    const category = form.category.value;
-    const sub_Category = selectedOption;
+    const sub_category = form.category.value;
+    // const sub_category = selectedOption;
     const description = form.description.value;
     const singleToy = {
       toy_name,
@@ -45,24 +46,39 @@ const AddToy = () => {
       photo,
       seller_email,
       seller_name,
-      category,
-      sub_Category,
+      // category,
+      sub_category,
       description,
     };
-    console.log(singleToy);
+    // console.log(singleToy);
 
-    fetch("https://toy-marketplace-flame.vercel.app/addToy", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(singleToy),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        Swal.fire("Good job!", "Toy Added Successfully!", "success");
-      });
+    if (
+      (toy_name,
+      price,
+      quantity,
+      rating,
+      photo,
+      seller_email,
+      seller_name,
+      sub_category,
+      description)
+    ) {
+      fetch("https://toy-marketplace-flame.vercel.app/addToy", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(singleToy),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          Swal.fire("Good job!", "Toy Added Successfully!", "success");
+        });
+    } else {
+      toast.error("Some input fields are empty");
+    }
+    form.reset();
   };
 
   return (
@@ -189,7 +205,7 @@ const AddToy = () => {
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
               htmlFor="grid-state"
             >
-              Category
+              Sub Category
             </label>
             <div className="relative">
               <select
@@ -197,9 +213,9 @@ const AddToy = () => {
                 id="grid-state"
                 name="category"
               >
-                <option value="sports-car">Sports Cars</option>
-                <option value="police-car">Police Car</option>
-                <option value="vintage">Vintage</option>
+                <option value="electric-rc-cars">Electric RC Cars</option>
+                <option value="nitro-rc-cars">Nitro RC Cars</option>
+                <option value="gas-powered-rc-cars">Gas-Powered RC Cars</option>
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                 <svg
@@ -214,7 +230,7 @@ const AddToy = () => {
           </div>
         </div>
 
-        <div className="flex flex-wrap -mx-3 mb-6">
+        {/* <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -230,7 +246,7 @@ const AddToy = () => {
               isMulti
             />
           </div>
-        </div>
+        </div> */}
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
             <label

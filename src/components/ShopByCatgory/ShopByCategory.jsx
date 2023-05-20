@@ -4,13 +4,14 @@ import "react-tabs/style/react-tabs.css";
 import SubToy from "../SubToy/SubToy";
 
 const ShopByCategory = () => {
-  const [activeTab, setActiveTab] = useState("sports-car");
+  const [activeTab, setActiveTab] = useState("electric-rc-cars");
   const [toyData, setToyData] = useState([]);
   // const [subToyData, setSubToyData] = useState([]);
   // const [activeSubTab, setActiveSubTab] = useState("monster-trucks");
 
   const handleTab = (tabName) => {
     setActiveTab(tabName);
+    // console.log(tabName);
     // if (tabName === "sports-car") {
     //   setActiveSubTab("monster-trucks");
     // } else if (tabName === "police-car") {
@@ -41,7 +42,7 @@ const ShopByCategory = () => {
   // console.log(activeTab);
   useEffect(() => {
     fetch(
-      `https://toy-marketplace-flame.vercel.app/allToysCategory/${activeTab}`
+      `https://toy-marketplace-flame.vercel.app/allToysSubCategory/${activeTab}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -59,34 +60,36 @@ const ShopByCategory = () => {
   return (
     <div className="mt-10">
       <h1 className="text-center font-bold textColor mb-4 text-2xl">
-        Category
+        Shop By Category
       </h1>
       <div className="flex justify-center items-center mx-4">
         <div>
           <div className="tabs">
             <a
-              onClick={() => handleTab("sports-car")}
+              onClick={() => handleTab("electric-rc-cars")}
               className={`tab border-b-4 border-sky-500 text-xl font-bold ${
-                activeTab === "sports-car" ? "tab-active textColor" : ""
+                activeTab === "electric-rc-cars" ? "tab-active textColor" : ""
               }`}
             >
-              Sports Car
+              Electric RC Cars
             </a>
             <a
-              onClick={() => handleTab("police-car")}
+              onClick={() => handleTab("nitro-rc-cars")}
               className={`tab border-b-4 border-sky-500 text-xl font-bold ${
-                activeTab === "police-car" ? "tab-active textColor" : ""
+                activeTab === "nitro-rc-cars" ? "tab-active textColor" : ""
               }`}
             >
-              Police Car
+              Nitro RC Cars
             </a>
             <a
-              onClick={() => handleTab("vintage")}
+              onClick={() => handleTab("gas-powered-rc-cars")}
               className={`tab border-b-4 border-sky-500 text-xl font-bold  ${
-                activeTab === "vintage" ? "tab-active textColor" : ""
+                activeTab === "gas-powered-rc-cars"
+                  ? "tab-active textColor"
+                  : ""
               }`}
             >
-              Vintage
+              Gas-Powered RC Cars
             </a>
           </div>
           {/* <div className="my-4">

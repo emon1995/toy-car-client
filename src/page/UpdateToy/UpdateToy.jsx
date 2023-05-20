@@ -9,7 +9,7 @@ const UpdateToy = () => {
   const location = useLocation();
 
   if (location.pathname === `/updateToy/${loadToy._id}`) {
-    document.title = "CarsToyZone | Update Toy";
+    document.title = "RaceToyZone | Update Toy";
   }
 
   const handleAddToy = (e) => {

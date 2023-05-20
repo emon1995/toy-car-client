@@ -11,7 +11,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   if (location.pathname === `/register`) {
-    document.title = "CarsToyZone | Register";
+    document.title = "RaceToyZone | Register";
   }
 
   const from = location?.state?.from?.pathname || "/";

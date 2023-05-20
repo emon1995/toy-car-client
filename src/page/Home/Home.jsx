@@ -10,7 +10,7 @@ const Home = () => {
   const location = useLocation();
 
   if (location.pathname === `/`) {
-    document.title = "CarsToyZone | Home";
+    document.title = "RaceToyZone | Home";
   }
 
   return (

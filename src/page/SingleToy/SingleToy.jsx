@@ -7,7 +7,7 @@ const SingleToy = () => {
   // console.log(location);
 
   if (location.pathname === `/toy/${loadToy._id}`) {
-    document.title = `CarsToyZone | ${location.state}`;
+    document.title = `RaceToyZone | ${location.state}`;
   }
 
   return (

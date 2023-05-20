@@ -1,9 +1,20 @@
 import { Link } from "react-router-dom";
 // import AOS from "aos";
 import "aos/dist/aos.css";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
+import { toast } from "react-hot-toast";
 
 const SubToy = ({ toy }) => {
+  const { user } = useContext(AuthContext);
   const { _id, toy_name, price, rating, photo } = toy || {};
+
+  const handleAlert = () => {
+    if (!user?.email) {
+      toast.error("You have to log in first to view details");
+    }
+  };
+
   return (
     <>
       <div
@@ -29,6 +40,7 @@ const SubToy = ({ toy }) => {
             <p className="leading-relaxed mb-3">Rating: {rating}</p>
             <div className="flex items-center flex-wrap ">
               <Link
+                onClick={handleAlert}
                 to={`/toy/${_id}`}
                 className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
               >

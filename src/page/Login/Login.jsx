@@ -12,7 +12,7 @@ const Login = () => {
   const location = useLocation();
 
   if (location.pathname === `/login`) {
-    document.title = "CarsToyZone | Login";
+    document.title = "RaceToyZone | Login";
   }
 
   const from = location?.state?.from?.pathname || "/";
@@ -22,7 +22,7 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password);
 
     if ((!email, !password)) {
       return toast.error("Input Field is empty");

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 import { Link, useLoaderData, useLocation } from "react-router-dom";
 
 const AllToys = () => {
@@ -8,16 +9,22 @@ const AllToys = () => {
   const location = useLocation();
 
   if (location.pathname === `/allToys`) {
-    document.title = "CarsToyZone | All Toy";
+    document.title = "RaceToyZone | All Toy";
   }
 
   const handleSearch = () => {
-    fetch(`https://toy-marketplace-flame.vercel.app/searchToy/${searchText}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setAllToys(data);
-      });
+    if (searchText === "") {
+      toast.error("Please input value");
+    } else {
+      fetch(`https://toy-marketplace-flame.vercel.app/searchToy/${searchText}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setAllToys(data);
+        });
+    }
   };
+
+  // console.log(allToys);
 
   // console.log(loadToys);
   return (
@@ -75,11 +82,7 @@ const AllToys = () => {
                   <th>{index + 1}</th>
                   <td>{toy?.seller_name}</td>
                   <td>{toy?.toy_name}</td>
-                  <td>
-                    {toy?.sub_Category.map((sub, i) => (
-                      <span key={i}>{sub.value},</span>
-                    ))}
-                  </td>
+                  <td>{toy?.sub_category}</td>
                   <td>{toy?.price}</td>
                   <td>{toy?.quantity}</td>
                   <td>

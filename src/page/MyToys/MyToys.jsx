@@ -11,7 +11,7 @@ const MyToys = () => {
   const location = useLocation();
 
   if (location.pathname === `/myToys`) {
-    document.title = "CarsToyZone | My Toy";
+    document.title = "RaceToyZone | My Toy";
   }
 
   const handleTab = (tabName) => {

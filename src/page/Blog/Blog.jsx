@@ -4,7 +4,7 @@ const Blog = () => {
   const location = useLocation();
 
   if (location.pathname === `/blog`) {
-    document.title = "CarsToyZone | Blog";
+    document.title = "RaceToyZone | Blog";
   }
 
   return (

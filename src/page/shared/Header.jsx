@@ -66,8 +66,8 @@ const Header = () => {
             to={`/`}
             className="btn btn-ghost normal-case text-xs md:text-xl gap-2"
           >
-            <img className="w-7 h-7" src={logo} alt="logo" />
-            CarsToyZone
+            <img className="w-9 h-10" src={logo} alt="logo" />
+            RaceToyZone
           </Link>
         </div>
         <div className="navbar-center hidden navbar-end lg:flex">

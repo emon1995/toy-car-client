@@ -94,7 +94,7 @@ const Feedback = () => {
               Submit
             </button>
             <p className="text-xs text-gray-500 mt-3">
-              Thank you for choosing CarsToyZone. We value your opinion and are
+              Thank you for choosing RaceToyZone. We value your opinion and are
               committed to making your toy car experience exceptional!
             </p>
           </div>
